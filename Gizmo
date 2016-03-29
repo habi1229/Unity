@@ -1,0 +1,29 @@
+using UnityEngine;
+using System.Collections;
+
+public class GizmoSample : MonoBehaviour
+{
+    public bool DrawGizmos = true;
+
+    //기즈모를 그리도록 호출한다. 이 이벤트를 이용하면 항상 그리게 된다.
+    //선택된 오브젝트에만 기즈모를 그리도록 하려면 OnDrawGizmosSelected를 이용한다.
+    public void OnDrawGizmos()
+    {
+        if (!DrawGizmos) return;
+
+        //기즈모의 색상 설정
+        Gizmos.color = Color.blue;
+
+        //전면 벡터를 그려 오브젝트가 향하는 방향을 보여준다.
+        Gizmos.DrawRay(transform.position, transform.forward.normalized * 4.0f);
+
+        //기즈모의 색상 설정
+        //육면체의 반경을 보여준다.
+        //이 육면체가 적이라면 이 반경 안에서 플레이어를 감지하게 된다.
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 4.0f);
+
+        //색상을 흰색으로 되돌린다.
+        Gizmos.color = Color.white;
+    }
+}
