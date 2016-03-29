@@ -10,7 +10,7 @@ public class ExceptionLogger : MonoBehaviour
     // 로그를 남길 파일 이름
     public string LogFileName = "Log.txt";
 
-	void Start () 
+    void Start () 
     {
         // 오브젝트가 파괴되지 않고 유지되도록 한다.
         DontDestroyOnLoad(gameObject);
